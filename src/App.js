@@ -1,22 +1,23 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import Navbar from './components/Navbar';
 import Home from './pages/Home/Home';
-import About from './pages/About/About';
 import NotFound from './pages/NotFound/NotFound';
-import Contact from './pages/Contact/Contact';
 import Legal from './pages/Legal/Legal';
+import Linktree from './pages/Linktree/Linktree';
+
+import CookieConsent from './components/CookieConsent';
+import DarkmodeToggle from './components/DarkmodeToggle';
 
 function App() {
   return (
     <>
-      <Navbar />
+      <DarkmodeToggle />
+      <CookieConsent text="This site uses cookies. By accepting this prompt, you agree to our cookie-policy." />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/legal" element={<Legal />} />
+        <Route path="/linktree" element={<Linktree />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

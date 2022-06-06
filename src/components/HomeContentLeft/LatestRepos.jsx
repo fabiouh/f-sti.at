@@ -1,33 +1,15 @@
 import React from 'react';
-import {
-  Box,
-  useColorMode,
-  Heading,
-  Divider
-} from '@chakra-ui/react';
-import styled, { keyframes } from 'styled-components';
-import { bounceIn } from 'react-animations';
+import { Box, Heading, Divider } from '@chakra-ui/react';
+import GitHubCard from './GitHubCard';
 import GitHubAPI from '../../api/github';
-import GitHubCard from '../../components/GitHubCard';
 import moment from 'moment';
 
-const GitHub = () => {
-  /* eslint-disable-next-line */
-  const { colorMode, toggleColorMode } = useColorMode();
-
-  const animation = keyframes`${bounceIn}`;
-  const AnimationDiv = styled.div`
-    animation: 1s ${animation};
-  `;
-
+function LatestRepos() {
   const { data } = GitHubAPI();
 
   return (
-    <AnimationDiv>
-      <Box
-        mx={{ base: '50px', md: '100px', lg: '200px' }}
-        my={10}
-      >
+    <>
+      <Box my={4}>
         <Box>
           <Heading size="md" fontFamily="Urbanist">
             My latest GitHub Repos 🖥
@@ -50,8 +32,8 @@ const GitHub = () => {
             ))
           : null}
       </Box>
-    </AnimationDiv>
+    </>
   );
-};
+}
 
-export default GitHub;
+export default LatestRepos;

@@ -4,21 +4,16 @@ import {
   Box,
   Divider,
   Text,
-  useColorMode
+  useColorMode,
+  Button
 } from '@chakra-ui/react';
-import styled, { keyframes } from 'styled-components';
-import { bounceIn } from 'react-animations';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import '../../style.css';
+import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
 
 const Hero = () => {
   /* eslint-disable-next-line */
   const { colorMode, toggleColorMode } = useColorMode();
-
-  const animation = keyframes`${bounceIn}`;
-  const AnimationDiv = styled.div`
-    animation: 1s ${animation};
-  `;
 
   const Mail = styled(Link)`
     color: #4287f5;
@@ -28,38 +23,45 @@ const Hero = () => {
   `;
 
   return (
-    <AnimationDiv>
-      <Box
-        mx={{ base: '50px', md: '100px', lg: '200px' }}
-        my={10}
+    <Box
+      mx={{ base: '50px', md: '100px', lg: '200px' }}
+      my={10}
+    >
+      <Button
+        size="sm"
+        mb={4}
+        leftIcon={<BsFillArrowLeftCircleFill />}
+        onClick={() => (window.location.href = '/')}
       >
-        <Box>
-          <Heading size="lg" fontFamily="Urbanist">
-            Imprint 📄
-          </Heading>
-          <Divider w={'full'} my={2} />
-        </Box>
-        <Box>
-          <Text fontFamily="Urbanist" fontSize="lg">
-            Fabian Stifter
-          </Text>
-          <Text fontFamily="Urbanist" fontSize="lg">
-            <Mail to="mailto:fab@f-sti.at">
-              fab@f-sti.at (click me!)
-            </Mail>
-          </Text>
-          <Text fontFamily="Urbanist" fontSize="lg">
-            Feldgasse 19
-          </Text>
-          <Text fontFamily="Urbanist" fontSize="lg">
-            7331 Weppersdorf
-          </Text>
-          <Text fontFamily="Urbanist" fontSize="lg">
-            Austria
-          </Text>
-        </Box>
+        Back to home
+      </Button>
+
+      <Box>
+        <Heading size="lg" fontFamily="Urbanist">
+          Imprint 📄
+        </Heading>
+        <Divider w={'full'} my={2} />
       </Box>
-    </AnimationDiv>
+      <Box>
+        <Text fontFamily="Urbanist" fontSize="lg">
+          Fabian Stifter
+        </Text>
+        <Text fontFamily="Urbanist" fontSize="lg">
+          <Mail to="mailto:fab@f-sti.at">
+            fab@f-sti.at (click me!)
+          </Mail>
+        </Text>
+        <Text fontFamily="Urbanist" fontSize="lg">
+          Feldgasse 19
+        </Text>
+        <Text fontFamily="Urbanist" fontSize="lg">
+          7331 Weppersdorf
+        </Text>
+        <Text fontFamily="Urbanist" fontSize="lg">
+          Austria
+        </Text>
+      </Box>
+    </Box>
   );
 };
 

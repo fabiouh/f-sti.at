@@ -1,17 +1,31 @@
 import React from 'react';
+import HomeContentLeft from '../../components/HomeContentLeft/HomeContentLeft';
 
-import HomeHero from './HomeHero';
-import AboutMe from './AboutMe';
-import GitHub from './GitHub';
+import styled from 'styled-components';
+import HomeContentRight from '../../components/HomeContentRight/HomeContentRight';
 
-function HomePage() {
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  max-height: 100vh;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 992px) {
+    flex-direction: row;
+  }
+`;
+
+function Home() {
   return (
-    <>
-      <HomeHero />
-      <AboutMe />
-      <GitHub />
-    </>
+    <Wrapper>
+      <HomeContentLeft />
+      <HomeContentRight />
+    </Wrapper>
   );
 }
 
-export default HomePage;
+export default Home;
